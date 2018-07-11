@@ -105,3 +105,8 @@ venv.bak/
 
 # temporary files
 [Tt]mp/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
