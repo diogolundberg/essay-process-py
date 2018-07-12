@@ -19,8 +19,10 @@ class Production(Config):
 class Development(Config):
     pass
 
+
 class Testing(Config):
     pass
+
 
 for folder in Config.PATHS.values():
     if not path.exists(folder): makedirs(folder)

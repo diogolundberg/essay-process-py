@@ -1,6 +1,6 @@
 from config import Config
 from os import path
-import boto3, botocore
+import boto3
 
 def run(key):
     s3 = boto3.resource('s3')
