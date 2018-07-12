@@ -10,5 +10,4 @@ async def index(request):
     download(key)
     process(key)
     upload(key)
-    delete(key)
     return text(key)
