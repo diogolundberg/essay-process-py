@@ -2,6 +2,7 @@ from app.services import download, process, upload, delete
 from flask import Blueprint, request
 import logging
 import logging.handlers
+import re
 
 
 from os import getcwd, path
@@ -25,7 +26,7 @@ def index():
     if not records: return 'ok', 200
     for record in records:
         logger.info(record)
-        key = record['s3']['object']['key']
+        key = re.sub(r'^[^/]+/', '', record['s3']['object']['key'])
         download(key)
         process(key)
         upload(key)
