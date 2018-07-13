@@ -29,4 +29,6 @@ def index():
         key = record['s3']['object']['key']
         file_name = re.sub(r'^[^/]+/', '', key)
         download(key, file_name)
+        process(file_name)
+        upload(file_name)
     return 'ok', 200
