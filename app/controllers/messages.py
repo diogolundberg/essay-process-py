@@ -26,8 +26,9 @@ def index():
     if not records: return 'ok', 200
     for record in records:
         logger.info(record)
-        key = re.sub(r'^[^/]+/', '', record['s3']['object']['key'])
-        download(key)
-        process(key)
-        upload(key)
+        key = record['s3']['object']['key']
+        file_name = re.sub(r'^[^/]+/', '', key)
+        download(key, file_name)
+        process(file_name)
+        upload(file_name)
     return 'ok', 200
