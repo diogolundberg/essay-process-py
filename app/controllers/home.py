@@ -3,5 +3,5 @@ from flask import Blueprint
 blueprint = Blueprint('home', __name__, url_prefix='/')
 
 @blueprint.route('/')
-def index(request):
+def index():
     return 'ready'
