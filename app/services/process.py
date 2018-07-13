@@ -9,8 +9,8 @@ def run(file_name):
     black = path.join(Config.PATHS['black'], file_name);
     cropped = path.join(Config.PATHS['cropped'], file_name);
 
-    call(f'convert -resize 1070 {source} {resized}', shell=True)
-    call(f'convert {resized} -verbose -deskew 40% -trim {aligned}', shell=True)
+    call(f'convert -resize 1070 {source} {aligned}', shell=True)
+    #call(f'convert {resized} -verbose -deskew 40% -trim {aligned}', shell=True)
     #call(f'magick {aligned} -level 100,5000,1 -threshold 70% {black}', shell=True)
     call(f'convert -crop 980x1040+50+70 {aligned} {cropped}', shell=True)
 
