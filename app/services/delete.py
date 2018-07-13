@@ -7,6 +7,7 @@ def run(key):
     aligned = path.join(Config.PATHS['aligned'], key);
     black = path.join(Config.PATHS['black'], key);
     cropped = path.join(Config.PATHS['cropped'], key);
-    [remove(file) for file in [source, resized, aligned, black, cropped]]
+
+    map(remove, [source, resized, aligned, black, cropped])
 
     return True

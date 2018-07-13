@@ -1,13 +1,12 @@
 from app.services import download, process, upload, delete
-from sanic import Blueprint
-from sanic.response import json, text
+from flask import Blueprint, request
 
-blueprint = Blueprint('messages', url_prefix='/messages')
+blueprint = Blueprint('messages', __name__, url_prefix='/messages')
 
-@blueprint.post('/')
-async def index(request):
+@blueprint.route('', methods=['post'])
+def index():
     key = request.json['Records'][0]['s3']['object']['key']
     download(key)
     process(key)
     upload(key)
-    return text(key)
+    return key

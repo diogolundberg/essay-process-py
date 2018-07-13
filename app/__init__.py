@@ -1,8 +1,8 @@
-import config
 from os import getenv
-from sanic import Sanic
-from .controllers import controllers
+from flask import Flask
+from .controllers import blueprints
 
-application = Sanic()
-application.config.from_object(getattr(config, getenv('ENV', 'Development')))
-application.blueprint(controllers)
+application = Flask('educat')
+application.config.from_object(f'config.{getenv("ENV", "Development")}')
+
+for blueprint in blueprints: application.register_blueprint(blueprint)

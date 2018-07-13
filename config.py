@@ -13,15 +13,17 @@ class Config(object):
 
 
 class Production(Config):
-    pass
+    ENV = 'production'
 
 
 class Development(Config):
-    pass
+    ENV = 'development'
+    DEBUG = True
 
 
 class Testing(Config):
-    pass
+    ENV = 'testing'
+    TESTING = True
 
 
 for folder in Config.PATHS.values():
